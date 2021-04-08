@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      highScore: 0,
+      currentScore: 0,
+    }
+    
+    this.increaseScore = this.increaseScore.bind(this);
+    this.resetScore = this.resetScore.bind(this);
+  }
+
+  increaseScore() {
+    if (this.state.currentScore >= this.state.highScore) {
+      this.setState({
+        currentScore: this.state.currentScore + 1,
+        highScore: this.state.currentScore + 1
+      })
+    } else {
+      this.setState({
+        currentScore: this.state.currentScore + 1
+      });
+    }
+  }
+
+  resetScore() {
+    this.setState({
+      currentScore: 0
+    });
+  }
+
+  render() {
+    return <div>
+      Hi!
     </div>
-  );
+  }
 }
 
 export default App;
