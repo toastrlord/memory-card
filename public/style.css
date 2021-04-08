@@ -1,0 +1,9 @@
+.card-container {
+    cursor: pointer;
+    border: solid 2px transparent;
+}
+
+.card-container:hover {
+    border: solid 2px yellow;
+    background-color: grey;
+}
