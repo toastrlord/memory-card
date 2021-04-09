@@ -1,5 +1,8 @@
 import Card from './components/Card';
+import Score from './components/Score';
 import {Component} from 'react';
+
+const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 class App extends Component {
   constructor(props) {
@@ -9,11 +12,18 @@ class App extends Component {
       highScore: 0,
       currentScore: 0,
       cardsClicked: [],
+      cards: cards,
     }
-    
+
     this.increaseScore = this.increaseScore.bind(this);
     this.resetScore = this.resetScore.bind(this);
     this.clickCard = this.clickCard.bind(this);
+  }
+
+  async componentDidMount() {
+    const thing = await fetch('./images');
+    console.log(thing);
+    this.randomizeCards();
   }
 
   increaseScore() {
@@ -36,6 +46,18 @@ class App extends Component {
     });
   }
 
+  randomizeCards() {
+    const cardsCopy = cards.map(v => v);
+    let newCards = [];
+    while (cardsCopy.length > 1) {
+      const index = Math.round(Math.random() * (cardsCopy.length -1));
+      newCards.push(cardsCopy.splice(index, 1));
+    }
+    this.setState({
+      cards: newCards,
+    });
+  }
+
   clickCard(cardID) {
     if (this.state.cardsClicked.includes(cardID)) {
       this.resetScore();
@@ -45,13 +67,14 @@ class App extends Component {
       });
       this.increaseScore();
     }
+    this.randomizeCards();
   }
 
   render() {
+    const {currentScore, highScore, cards} = this.state;
     return <div>
-    <p>Current Score: {this.state.currentScore}</p>
-    <p>High Score: {this.state.highScore}</p>
-      {[0, 1, 2, 3, 4, 5, 6, 7].map(value => {
+      <Score currentScore={currentScore} highScore={highScore}/>
+      {cards.map(value => {
         return <Card id={value} onCardClicked={() => this.clickCard(value)}/>;
       })}
     </div>
