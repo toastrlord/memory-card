@@ -59,11 +59,11 @@ class App extends Component {
   }
 
   clickCard(cardID) {
-    if (this.state.cardsClicked.includes(cardID)) {
+    if (this.state.cardsClicked.includes(parseInt(cardID, 10))) {
       this.resetScore();
     } else {
       this.setState({
-        cardsClicked: this.state.cardsClicked.concat([cardID]),
+        cardsClicked: this.state.cardsClicked.concat(cardID),
       });
       this.increaseScore();
     }
@@ -74,9 +74,9 @@ class App extends Component {
     const {currentScore, highScore, cards} = this.state;
     return <div>
       <Score currentScore={currentScore} highScore={highScore}/>
-      {cards.map(value => {
+      <div className='card-container'>{cards.map(value => {
         return <Card id={value} onCardClicked={() => this.clickCard(value)}/>;
-      })}
+      })}</div>
     </div>
   }
 }

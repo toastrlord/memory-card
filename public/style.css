@@ -1,10 +1,15 @@
 .card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
     cursor: pointer;
     border: solid 2px transparent;
     border-radius: 6px;
 }
 
-.card-container:hover {
+.card:hover {
     border: solid 2px rgb(255, 211, 17);
     background-color: rgb(53, 54, 65);
 }
