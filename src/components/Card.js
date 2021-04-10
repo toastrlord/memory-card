@@ -4,7 +4,7 @@ function Card(props) {
     return (
         <div className='card' onClick={() => props.onCardClicked()}>
             <img src={props.imgSource} alt='' />
-            <p>{props.title}</p>
+            <p className='card-description'>{props.title}</p>
         </div>
     )
 }

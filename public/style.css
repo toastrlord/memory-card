@@ -1,5 +1,9 @@
 @import 'reset.css';
 
+body {
+    background-color: #2d0e0e;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -7,6 +11,12 @@ header {
     background-color: #590000;
     padding-top: 8px;
     padding-bottom: 8px;
+}
+
+.instructions-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fdfcf9;
 }
 
 .score-container {
@@ -24,7 +34,6 @@ header {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: #2d0e0e;
     padding-top: 8px;
 }
 
@@ -37,9 +46,16 @@ header {
     padding: 16px;
     color: #fdfcf9;
     font-weight: bold;
+    transition: all 250ms ease;
 }
 
 .card:hover {
     border: solid 2px #fdfcf9;
     background-color: rgb(53, 54, 65);
+    padding-top: 8px;
+    padding-bottom: 24px;
+}
+
+.card-description {
+    margin-top: 8px;
 }
