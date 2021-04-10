@@ -2,7 +2,6 @@
   "name": "memory-card",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://toastrlord.github.io/memory-card",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
@@ -12,7 +11,8 @@
     "react-scripts": "4.0.3",
     "reset-css": "^5.0.1",
     "web-vitals": "^1.1.1",
-    "webpack": "^4.44.2"
+    "webpack": "^4.44.2",
+    "homepage": "https://toastrlord.github.io/memory-card/"
   },
   "scripts": {
     "start": "react-scripts start",
