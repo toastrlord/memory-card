@@ -1,0 +1,64 @@
+@import 'reset.css';
+
+body {
+    background-color: #2d0e0e;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #590000;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.instructions-text, .score-text {
+    font-weight: bold;
+    color: #f0c135;
+}
+
+.instructions-text {
+    font-size: 18px;
+    
+}
+
+.score-container {
+    margin-right: 32px;
+}
+
+.score-text {
+    font-size: 24px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.card {
+    cursor: pointer;
+    border: solid 2px transparent;
+    text-align: center;
+    margin-left: 12px;
+    margin-right: 12px;
+    padding: 16px;
+    color: #fdfcf9;
+    font-weight: bold;
+    transition: all 250ms ease;
+}
+
+.card:hover {
+    border: solid 2px #fdfcf9;
+    background-color: rgb(53, 54, 65);
+    padding-top: 8px;
+    padding-bottom: 24px;
+}
+
+.card-description {
+    margin-top: 8px;
+}
