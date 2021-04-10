@@ -13,10 +13,14 @@ header {
     padding-bottom: 8px;
 }
 
+.instructions-text, .score-text {
+    font-weight: bold;
+    color: #f0c135;
+}
+
 .instructions-text {
     font-size: 18px;
-    font-weight: bold;
-    color: #fdfcf9;
+    
 }
 
 .score-container {
@@ -24,9 +28,7 @@ header {
 }
 
 .score-text {
-    font-weight: bold;
     font-size: 24px;
-    color: #fdfcf9;
 }
 
 .card-container {
@@ -35,6 +37,7 @@ header {
     align-items: center;
     justify-content: center;
     padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .card {

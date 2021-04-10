@@ -93,13 +93,13 @@ class App extends Component {
     return (<div>
     <header>
       <img src='images/cs title.png' alt=''/>
-      <p className='instructions-text'>Increase your score by clicking an image, but don't click the same image twice!</p>
+      <p className='instructions-text'>Increase your score by clicking a plane, but don't click the same plane twice!</p>
       <Score currentScore={currentScore} highScore={highScore}/>
     </header>
-      <div className='card-container'>{cards.map(value => {
-        return <Card title={names[value]} id={value} key={value.toString()} onCardClicked={() => this.clickCard(value)} imgSource={'images/' + images[value] + '.png'}/>;
-      })}</div>
-      </div>);
+    <div className='card-container'>{cards.map(value => {
+      return <Card title={names[value]} id={value} key={value.toString()} onCardClicked={() => this.clickCard(value)} imgSource={'images/' + images[value] + '.png'}/>;
+    })}</div>
+    </div>);
   }
 }
 
