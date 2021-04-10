@@ -12,7 +12,17 @@ const images = {
   '7': 'peacemaker'
 }
 
-const cards = [1, 2, 3, 4, 5, 6, 7];
+const names = {
+  '1': 'Bristol Type 140 Balmoral',
+  '2': 'Hughes Bloodhawk',
+  '3': 'Fairchild F611 Brigand',
+  '4': 'Hughes P21-J Devastator',
+  '5': 'Curtiss-Wright J2 Fury',
+  '6': 'McDonnell S2B Kestrel',
+  '7': 'William and Colt Peacemaker 370'
+}
+
+const cardIDs = [1, 2, 3, 4, 5, 6, 7];
 
 class App extends Component {
   constructor(props) {
@@ -22,7 +32,7 @@ class App extends Component {
       highScore: 0,
       currentScore: 0,
       cardsClicked: [],
-      cards: cards,
+      cards: cardIDs,
     }
 
     this.increaseScore = this.increaseScore.bind(this);
@@ -31,8 +41,6 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const thing = await fetch('./images');
-    console.log(thing);
     this.randomizeCards();
   }
 
@@ -57,7 +65,7 @@ class App extends Component {
   }
 
   randomizeCards() {
-    const cardsCopy = cards.map(v => v);
+    const cardsCopy = cardIDs.map(v => v);
     let newCards = [];
     while (cardsCopy.length >= 1) {
       const index = Math.round(Math.random() * (cardsCopy.length - 1));
@@ -83,9 +91,12 @@ class App extends Component {
   render() {
     const {currentScore, highScore, cards} = this.state;
     return (<div>
+    <header>
+      <img src='images/cs title.png' alt=''/>
       <Score currentScore={currentScore} highScore={highScore}/>
+    </header>
       <div className='card-container'>{cards.map(value => {
-        return <Card id={value} onCardClicked={() => this.clickCard(value)} imgSource={'images/' + images[value] + '.png'}/>;
+        return <Card title={names[value]} id={value} key={value.toString()} onCardClicked={() => this.clickCard(value)} imgSource={'images/' + images[value] + '.png'}/>;
       })}</div>
       </div>);
   }
